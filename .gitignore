@@ -1,0 +1,11 @@
+.idea/
+.idea
+.env
+Vendor/
+vendor/
+cdn/
+ciente/
+FrontEnd/cdn
+FrontEnd/ciente
+FrontEnd/storage
+composer.lock

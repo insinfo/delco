@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+	#RewriteEngine On
+	#RewriteCond %{REQUEST_FILENAME} !-f
+	#RewriteRule ^ index.php [QSA,L]
+
+    RewriteEngine on
+    #RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    #RewriteRule ^(.*)$ index.php/$1 [L] #Lavavel PHP Framework style
+	RewriteRule . index.php [L] #WordPress style
+	
+	
+	# Habilita passagem de parametro de autorização no header http (Appache)
+	RewriteCond %{HTTP:Authorization} .
+	RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+</IfModule>
+
+
+#Header add Access-Control-Allow-Credentials "true"
+#Header add Access-Control-Allow-Origin "http://192.168.133.12"
+#Header add Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+#Header add Access-Control-Allow-Methods "GET,PUT,POST,DELETE,PATCH,OPTIONS"
